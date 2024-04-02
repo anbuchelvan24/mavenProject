@@ -1,24 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/your-username/your-repo.git'
-            }
-        }
         stage('Build') {
             steps {
+                // Example: Check out code from GitHub
+                git 'https://github.com/anbuchelvan24/mavenProject.git'
+                
+                // Example: Build the project using Maven
                 sh 'mvn clean install'
-            }
-        }
-        stage('Test') {
-            steps {
+                
+                // Example: Run unit tests
                 sh 'mvn test'
             }
         }
         stage('Deploy') {
             steps {
-                // Add deployment steps here
+                // Example: Deploy the built artifact
+                // Add your deployment steps here
             }
         }
     }
