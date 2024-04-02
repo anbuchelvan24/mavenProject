@@ -1,22 +1,14 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Build') {
+        stage('Display Commit History') {
             steps {
-                // Example: Check out code from GitHub
-                git 'https://github.com/anbuchelvan24/mavenProject.git'
+                // Checkout the repository
+                git url: 'https://github.com/anbuchelvan24/mavenProject.git', branch: 'master'
                 
-                // Example: Build the project using Maven
-                sh 'mvn clean install'
-                
-                // Example: Run unit tests
-                sh 'mvn test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                // Example: Deploy the built artifact
-                // Add your deployment steps here
+                // Display commit history
+                sh 'git log --oneline'
             }
         }
     }
