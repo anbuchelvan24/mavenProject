@@ -1,16 +1,10 @@
 pipeline {
     agent any
-    
     stages {
-        stage('Display Project Directory') {
+        stage('Build') { 
             steps {
-                // Display project directory
-                script {
-                    def projectDirectory = pwd()
-                    echo "Project directory: ${projectDirectory}"
-                }
+                sh 'mvn -B -DskipTests clean package' 
             }
         }
     }
 }
-
